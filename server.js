@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const tripRoutes = require("./routes/tripRoutes");
+const destinationRoutes = require("./routes/destinationRoutes");
 
 const app = express();
 const PORT = 5000;
@@ -18,7 +18,7 @@ mongoose
   .then(() => console.log("MongoDB connected ✅"))
   .catch((err) => console.log(err));
 // ===== ROUTES =====
-app.use("/trips", tripRoutes);
+app.use("/destinations", destinationRoutes);
 
 // ===== DEFAULT ROUTE =====
 app.get("/", (req, res) => {
