@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const cors = require("cors");
 const tripRoutes = require("./routes/tripRoutes");
 
@@ -10,6 +11,12 @@ app.use(cors());
 app.use(express.json());
 app.use("/images", express.static("public/images")); // serve images
 
+mongoose
+  .connect(
+    "mongodb+srv://sandro136190:S%40ndro2011@schooltrip.krer7cq.mongodb.net/schooltrip",
+  )
+  .then(() => console.log("MongoDB connected ✅"))
+  .catch((err) => console.log(err));
 // ===== ROUTES =====
 app.use("/trips", tripRoutes);
 
