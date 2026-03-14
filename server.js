@@ -5,6 +5,7 @@ const cors = require("cors");
 // Routes
 const destinationRoutes = require("./routes/destinationRoutes");
 const serviceRoutes = require("./routes/serviceRoutes");
+const howItWorksRoute = require("./routes/howItWorksRoute");
 
 const app = express();
 const PORT = 5000;
@@ -25,6 +26,7 @@ mongoose
 // ===== ROUTES =====
 app.use("/destinations", destinationRoutes);
 app.use("/service", serviceRoutes); // now uses /service/get-all and /service/create
+app.use("/how-it-works", howItWorksRoute); // now uses /how-it-works/get-all and /how-it-works/create
 
 // ===== DEFAULT ROUTE =====
 app.get("/", (req, res) => {
